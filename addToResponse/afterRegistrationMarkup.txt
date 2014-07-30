@@ -1,0 +1,66 @@
+ <div id="welcome">
+                   <div class="third">
+                <img id="welcomeImg" src="images/profilePic-01.png">
+                       <img id="profileMask" src="images/profileMask.svg">
+                       <div id="profileChange">Change your profile picture.</div>
+                       
+                       </div>
+                   <div class="twoThirds">
+                <h2>Welcome, Anoop!</h2>
+                <form>
+                <textarea id="textarea" class="bio deepPurp" placeholder="Tell us a little something about yourself!!! (in 200 characters or less)"></textarea>   
+                   
+                </form>   
+                   
+                </div>
+                
+                </div> 
+                
+            <div id="settingSelector">
+                <h3>Set some preferences</h3>
+                
+                <div class="setter">
+               
+                    <div class="options">
+                    <div class="third health" number="0">A</div>
+                    <div class="third middleOption health" number="1">B</div>
+                    <div class="third lastOption health" number="2">C</div>
+                        </div>
+                  
+                    <div id="healthSlider"></div>
+                    <h4>Minimum Health Rating</h4>  
+                </div>
+                    
+                
+                <div class="setter">
+                   
+                    <div class="options">
+                    <div class="third price" number="0">$</div>
+                    <div class="third middleOption price" number="1">$$</div>
+                    <div class="third lastOption price" number="2">$$$</div>
+                        </div>
+                <div id="priceSlider"></div>
+                 <h4>Price Range</h4>
+                    </div>
+                    
+                    <div class="setter">
+                    
+                    <div class="options">
+                    <div class="third distance" id="distOne">5 mi</div>
+                   
+                    <div class="third lastOption distance" id="distTwo" style="margin-left: 33%">50 mi</div>
+                        </div>
+                    <div id="distanceSlider"></div>
+                   <h4>Maximum Distance</h4>
+                        </div>
+                        
+                
+                    <form id="signUpForm" action="FILL THIS IN ANOOP!!!!!" method="post">
+                     
+                        <input type="text" name="bio" id="bio">
+                        <input type="text" name="health" id="health">
+                        <input type="text" name="price" id="price">
+                        <input type="text" name="distance" id="distance">
+                        
+                      <button name="submit" type="submit" class="next yellow">These are the settings I want! Let's go!!</div>
+                    </form>

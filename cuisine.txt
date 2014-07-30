@@ -1,0 +1,130 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.12
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8889
+-- Generation Time: Jul 29, 2014 at 01:02 AM
+-- Server version: 5.5.34
+-- PHP Version: 5.5.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `fusche`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restaurants`
+--
+
+CREATE TABLE `restaurants` (
+  `restaurantid` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `street` varchar(255) NOT NULL,
+  `building` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `state` varchar(255) NOT NULL,
+  `zip` int(5) NOT NULL,
+  `grade` varchar(5) NOT NULL,
+  `gradedate` int(32) DEFAULT NULL,
+  `price` varchar(5) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `cuisine` varchar(255) NOT NULL,
+  `violation` varchar(2000) NOT NULL,
+  `latitude` varchar(255) NOT NULL,
+  `longitude` varchar(255) NOT NULL,
+  `total_rating` int(10) NOT NULL,
+  `count` int(10) NOT NULL,
+  PRIMARY KEY (`restaurantid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1498862 ;
+
+--
+-- Dumping data for table `restaurants`
+--
+
+INSERT INTO `restaurants` (`cuisine`) VALUES
+('Afghan'),
+('African'),
+('American '),
+('Armenian'),
+('Asian'),
+('Australian'),
+('Bagels/Pretzels'),
+('Bakery'),
+('Bangladeshi'),
+('Barbecue'),
+('Bottled beverages, including water, sodas, juices, etc.'),
+('Brazilian'),
+('Café/Coffee/Tea'),
+('Cajun'),
+('Californian'),
+('Caribbean'),
+('Chicken'),
+('Chinese'),
+('Chinese/Cuban'),
+('Chinese/Japanese'),
+('Continental'),
+('Creole'),
+('Creole/Cajun'),
+('Czech'),
+('Delicatessen'),
+('Donuts'),
+('Eastern European'),
+('Egyptian'),
+('English'),
+('Ethiopian'),
+('Filipino'),
+('French'),
+('Fruits/Vegetables'),
+('German'),
+('Greek'),
+('Hamburgers'),
+('Hawaiian'),
+('Hotdogs'),
+('Hotdogs/Pretzels'),
+('Ice Cream, Gelato, Yogurt, Ices'),
+('Indian'),
+('Indonesian'),
+('Iranian'),
+('Irish'),
+('Italian'),
+('Japanese'),
+('Jewish/Kosher'),
+('Juice, Smoothies, Fruit Salads'),
+('Korean'),
+('Latin (Cuban, Dominican, Puerto Rican, South & Central American)'),
+('Mediterranean'),
+('Mexican'),
+('Middle Eastern'),
+('Moroccan'),
+('Not Listed/Not Applicable'),
+('Nuts/Confectionary'),
+('Other'),
+('Pakistani'),
+('Pancakes/Waffles'),
+('Peruvian'),
+('Pizza'),
+('Pizza/Italian'),
+('Polish'),
+('Portuguese'),
+('Russian'),
+('Salads'),
+('Sandwiches'),
+('Sandwiches/Salads/Mixed Buffet'),
+('Scandinavian'),
+('Seafood'),
+('Soul Food'),
+('Soups'),
+('Soups & Sandwiches'),
+('Southwestern'),
+('Spanish'),
+('Steak'),
+('Tapas'),
+('Tex-Mex'),
+('Thai'),
+('Turkish'),
+('Vegetarian'),
+('Vietnamese/Cambodian/Malaysia');

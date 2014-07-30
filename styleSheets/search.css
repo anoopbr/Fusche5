@@ -1,0 +1,89 @@
+/*to do spotify style scrolling of secondary menu when page gets to mobile size
+*/
+#search {
+width: 70%;
+float: left;
+padding: 7.5%;
+padding-bottom: 2%;
+background-color: white;
+margin-left: 7.55%;
+margin-top: 3%;
+border-radius: 15px;
+-webkit-box-shadow: 1px 2px 10px rgba(0,0,0,.2);
+box-shadow: 1px 2px 10px rgba(0,0,0,.2);
+padding-top: 2%;
+height: 5%;
+}
+
+#secondaryNav {
+    width: 60%;
+padding: 20%;
+padding-top: 1%;
+padding-bottom: 1%;
+    color: #5e3a3f;
+}
+
+#secondaryNav span {
+float: left;
+width: 23%;
+padding: 1%;
+text-align: center;
+font-family: "open sans";
+font-size: 115%;
+padding-bottom: 0px;
+padding-top: 0px;
+}
+
+#secondaryNav span:hover {
+ cursor: pointer;   
+    
+}
+
+
+#searchSubmit {
+    height: 90%;
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+#searchSubmit:focus {
+    outline: none;
+}
+
+
+#searchSubmit:hover {
+ -webkit-transform-origin: center;
+ -ms-transform-origin: center;
+ transform-origin: center;
+ -webkit-transform: scale(1.1);
+ -ms-transform: scale(1.1);
+ transform: scale(1.1);
+    
+}
+
+#searchBox {
+  height: 100%;
+padding: 0px;
+float: left;
+border: 0px;
+width: 80%;
+font-family: comfortaa;
+font-size: 110%;
+font-weight: 100;  
+    
+}
+
+
+
+@media (max-width: 930px) {
+ #secondaryNav {
+  width: 90%;
+ padding: 5%;
+    padding-top: 1%;
+     padding-bottom: 1%;
+     
+ }
+}
