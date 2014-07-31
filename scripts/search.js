@@ -5,6 +5,16 @@
 var start=0;
 var end=1;
 var alreadyRequested = false;
+
+var restaurantid = [];
+var name = [] ;
+var street = [] ;
+var building = [] ;
+var city = [] ;
+var phone = [] ;
+var price =[] ;
+var cuisine =[] ;
+var grade = [] ;
  $(window).load(function () {
 
 
@@ -145,9 +155,26 @@ var alreadyRequested = false;
 
  }
 
- function query(){
-        console.log("SEARCHING!!!!")
-  
+ function loadResult(first, last){
+        console.log("LOADING!!!!")
+        var html = "";
+        for(i=first; i<last; i++){
+            html += '<div class="result darkYellow"><div class="resultsOverflow "><div class="swipeIndicator"><img src="images/arrowRight.svg"></div>';
+            html += '<div class="leftResult yellow"><div class="resultTitle">' + name[i] + '</div><div class="resultAddress">'+building[i]+' '+street[i]+'</div>';
+            html += '<div class="resultRating"><img src="images/star.svg"><img src="images/star.svg"><img src="images/star.svg"><img src="images/noStar.svg">';
+            html += '<img src="images/noStar.svg"></div><div class="resultImage"><img src="http://www.envision-creative.com/wp-content/uploads/Tiagos01.jpg"></div>';
+            html += '<div class="rating" rating="sucks">It Sucks</div><div class="addToList"><img src="images/saveToList.svg"><div class="addText">add to list</div>';
+            html += '</div><div class="rating right" rating="good">Gotta Have It!</div></div>';
+
+            html += '<div class="rightResult darkYellow"><p class="clusterOne">'+phone[i]+'<br/>lavillacafe.com <br/>.2 miles away<br/>'+price[i]+'</p>';
+            html += '<h3>Hours of Operation</h3><p>S - 6am - 10pm<br/>M - 6am - 10pm<br/>T - 6am - 10pm<br/>W - 6am - 10pm<br/>Th - 6am - 10pm<br/>F - 6am - 10pm';
+            html += '<br/>Sa - 6am - 10pm</p><div class="menuButton yellow">See the Menu</div></div><div class="ratingBar"><div class="ratingBad"></div>';
+            html += '<div class="ratingGood"></div></div></div></div>';
+        }
+        start = end + 1;
+        end += 10;
+        alreadyRequested = false;
+        return html;
  }
 
  function searchPage() {
@@ -166,6 +193,9 @@ var alreadyRequested = false;
 
                      console.log("aaaaaghhhh");
                   if (alreadyRequested==false) {
+
+                    var html = loadResult(start,end);
+                    $('#resultContainer').append(html);
                       // query();
                       alreadyRequested=true;
               }
@@ -193,6 +223,8 @@ var alreadyRequested = false;
                      console.log("aaaaaghhhh");
                     if (alreadyRequested==false) {
                      // query();
+                     var html = loadResult(start,end);
+                    $('#resultContainer').append(html);
                      alreadyRequested=true;
                  }
                      //This will run when you are 150px from the bottom
@@ -227,15 +259,9 @@ var alreadyRequested = false;
                 var response = data["response"];
                 if(response == "success"){
                     //alert("success");
-                    var name = [] ;
-                    var street = [] ;
-                    var building = [] ;
-                    var city = [] ;
-                    var phone = [] ;
-                    var price =[] ;
-                    var cuisine =[] ;
-                    var grade = [] ;
+
                     for(var i=0; i < data["value"].length; i++){
+                        restaurantid[i] = data["value"][i]["restaurantid"];
                         name[i] = data["value"][i]["name"];
                         street[i] = data["value"][i]["street"];
                         building[i] = data["value"][i]["building"];
@@ -247,28 +273,15 @@ var alreadyRequested = false;
                         // console.log(building);
                         // console.log(phone);
                     }
-                    var html = "";
-                    for(i=0; i<10; i++){
-                        html += '<div class="result darkYellow"><div class="resultsOverflow "><div class="swipeIndicator"><img src="images/arrowRight.svg"></div>';
-                        html += '<div class="leftResult yellow"><div class="resultTitle">' + name[i] + '</div><div class="resultAddress">'+building[i]+' '+street[i]+'</div>';
-                        html += '<div class="resultRating"><img src="images/star.svg"><img src="images/star.svg"><img src="images/star.svg"><img src="images/noStar.svg">';
-                        html += '<img src="images/noStar.svg"></div><div class="resultImage"><img src="http://www.envision-creative.com/wp-content/uploads/Tiagos01.jpg"></div>';
-                        html += '<div class="rating" rating="sucks">It Sucks</div><div class="addToList"><img src="images/saveToList.svg"><div class="addText">add to list</div>';
-                        html += '</div><div class="rating right" rating="good">Gotta Have It!</div></div>';
 
-                        html += '<div class="rightResult darkYellow"><p class="clusterOne">'+phone[i]+'<br/>lavillacafe.com <br/>.2 miles away<br/>'+price[i]+'</p>';
-                        html += '<h3>Hours of Operation</h3><p>S - 6am - 10pm<br/>M - 6am - 10pm<br/>T - 6am - 10pm<br/>W - 6am - 10pm<br/>Th - 6am - 10pm<br/>F - 6am - 10pm';
-                        html += '<br/>Sa - 6am - 10pm</p><div class="menuButton yellow">See the Menu</div></div><div class="ratingBar"><div class="ratingBad"></div>';
-                        html += '<div class="ratingGood"></div></div></div></div>';
-                    }
-                    if(start == 0){
-                        document.getElementById("resultContainer").innerHTML = html;
-                    }else{
-                        $('#resultContainer').append(html);
-                    }
-                    start = end + 1;
-                    end += 2;
-                    alreadyRequested = false;
+                    var html = loadResult(start,end);
+                    document.getElementById("resultContainer").innerHTML = html;
+                    // if(start == 0){
+                    //     document.getElementById("resultContainer").innerHTML = html;
+                    // }else{
+                    //     $('#resultContainer').append(html);
+                    // }
+
                     
 
                 }else{

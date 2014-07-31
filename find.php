@@ -42,7 +42,7 @@ function search(){
 			$stmt1->execute();
 			$count = $stmt1->rowCount();
 			if($count > 0){
-				$stmt2 = $db->prepare("SELECT name, street, building, city, phone, price, cuisine, grade FROM restaurants WHERE LOWER(cuisine) like LOWER(:cuisine) group by `name`, `street`, `building`, `city` having max(gradedate) order by gradedate desc ");
+				$stmt2 = $db->prepare("SELECT restaurantid,name, street, building, city, phone, price, cuisine, grade FROM restaurants WHERE LOWER(cuisine) like LOWER(:cuisine) group by `name`, `street`, `building`, `city` having max(gradedate) order by gradedate desc ");
 				$stmt2->bindValue(':cuisine',$cuisine,PDO::PARAM_STR);
 				// $stmt2->bindValue(':start',$start,PDO::PARAM_INT);
 				// $stmt2->bindValue(':end',$end,PDO::PARAM_INT);
