@@ -1,13 +1,13 @@
- var width = window.innerWidth;
+var width = window.innerWidth;
 
  var search, sideBar;
 
 var start=0;
-var end=1;
+var end=10;
 var alreadyRequested = false;
 
 var restaurantid = [];
-var name = [] ;
+var restname = [] ;
 var street = [] ;
 var building = [] ;
 var city = [] ;
@@ -15,6 +15,12 @@ var phone = [] ;
 var price =[] ;
 var cuisine =[] ;
 var grade = [] ;
+var lat = [] ;
+var lng = [] ;
+var distance = [];
+var userLat = 0;
+var userLng = 0;
+
  $(window).load(function () {
 
 
@@ -160,13 +166,13 @@ var grade = [] ;
         var html = "";
         for(i=first; i<last; i++){
             html += '<div class="result darkYellow"><div class="resultsOverflow "><div class="swipeIndicator"><img src="images/arrowRight.svg"></div>';
-            html += '<div class="leftResult yellow"><div class="resultTitle">' + name[i] + '</div><div class="resultAddress">'+building[i]+' '+street[i]+'</div>';
+            html += '<div class="leftResult yellow"><div class="resultTitle">' + restname[i]+ '</div><div class="resultAddress">'+building[i]+' '+street[i]+'</div>';
             html += '<div class="resultRating"><img src="images/star.svg"><img src="images/star.svg"><img src="images/star.svg"><img src="images/noStar.svg">';
             html += '<img src="images/noStar.svg"></div><div class="resultImage"><img src="http://www.envision-creative.com/wp-content/uploads/Tiagos01.jpg"></div>';
             html += '<div class="rating" rating="sucks">It Sucks</div><div class="addToList"><img src="images/saveToList.svg"><div class="addText">add to list</div>';
             html += '</div><div class="rating right" rating="good">Gotta Have It!</div></div>';
 
-            html += '<div class="rightResult darkYellow"><p class="clusterOne">'+phone[i]+'<br/>lavillacafe.com <br/>.2 miles away<br/>'+price[i]+'</p>';
+            html += '<div class="rightResult darkYellow"><p class="clusterOne">'+phone[i]+'<br/>lavillacafe.com <br/>'+distance[i]+' miles away<br/>'+price[i]+'</p>';
             html += '<h3>Hours of Operation</h3><p>S - 6am - 10pm<br/>M - 6am - 10pm<br/>T - 6am - 10pm<br/>W - 6am - 10pm<br/>Th - 6am - 10pm<br/>F - 6am - 10pm';
             html += '<br/>Sa - 6am - 10pm</p><div class="menuButton yellow">See the Menu</div></div><div class="ratingBar"><div class="ratingBad"></div>';
             html += '<div class="ratingGood"></div></div></div></div>';
@@ -257,12 +263,15 @@ var grade = [] ;
                 console.log(data["response"]);
                 // console.log(data["value"]);
                 var response = data["response"];
+                var userLat = data["lat"];
+                var userLng = data["lng"];
                 if(response == "success"){
                     //alert("success");
+                    console.log(data["value"].length);
 
                     for(var i=0; i < data["value"].length; i++){
                         restaurantid[i] = data["value"][i]["restaurantid"];
-                        name[i] = data["value"][i]["name"];
+                        restname[i] = data["value"][i]["name"];
                         street[i] = data["value"][i]["street"];
                         building[i] = data["value"][i]["building"];
                         city[i] = data["value"][i]["city"];
@@ -270,8 +279,11 @@ var grade = [] ;
                         price[i] = data["value"][i]["price"];
                         cuisine[i] = data["value"][i]["cuisine"];
                         grade[i] = data["value"][i]["grade"];
-                        // console.log(building);
-                        // console.log(phone);
+                        lat[i] = data["value"][i]["latitude"];
+                        lng[i] = data["value"][i]["longitude"];
+                        var dist = 0;
+                        dist = calDistance(userLat, userLng, data["value"][i]["latitude"], data["value"][i]["longitude"]);
+                        distance[i] = dist;
                     }
 
                     var html = loadResult(start,end);
@@ -312,6 +324,40 @@ var grade = [] ;
  }
 
 
+function calDistance(lat1, lon1, lat2, lon2) {
+
+    var radlat1 = Math.PI * lat1/180
+
+    var radlat2 = Math.PI * lat2/180
+
+    var radlon1 = Math.PI * lon1/180
+
+    var radlon2 = Math.PI * lon2/180
+
+    var theta = lon1-lon2
+
+    var radtheta = Math.PI * theta/180
+
+    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+
+    dist = Math.acos(dist)
+
+    dist = dist * 180/Math.PI
+
+    dist = dist * 60 * 1.1515
+
+    // if (unit=="K") { dist = dist * 1.609344 }
+
+    // if (unit=="N") { dist = dist * 0.8684 }
+
+    dist = Math.round(dist * 10) / 10
+
+    // console.log(dist);
+
+    return dist
+
+}
+
 
 
 
@@ -347,4 +393,3 @@ var grade = [] ;
      }
 
  }
-

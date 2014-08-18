@@ -771,7 +771,7 @@ var logInMarkUp = '    ';
 
 
 
-function restResultMarkUp(restName, restAddress, starRating, restImgUrl, phoneNum, restUrl, restDist, price, hasMenu) {
+function restResultMarkUp(restName, restAddress, starRating, restImgUrl, phoneNum, restUrl, restDist, price, healthRating, hasMenu) {
     var fragment = document.createDocumentFragment();
     //the whole container
     var resultCont = document.createElement('div');
