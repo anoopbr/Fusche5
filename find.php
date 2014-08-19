@@ -39,7 +39,7 @@ function search(){
 		$return["lat"] = $lat;
 	}
 	if($lng =="" or $lng==null){
-		$lng = "-73.984408";
+		$lng = "-73.9572315";
 		$return["lng"] = $lng;
 	}
 
