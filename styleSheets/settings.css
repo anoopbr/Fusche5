@@ -5,29 +5,40 @@ body {
 
 }
 
-
 .ui-slider-horizontal .ui-state-default {
-background: transparent url(../images/yellowArrow-01.svg) no-repeat scroll 50% 50%;
+
+    background: transparent url(../images/yellowArrow-01.svg) no-repeat scroll 50% 50%;
+
 }
 
 #content {
- top: 0px;
 
-    
+    top: 0px;
+
 }
 
 #settingSelector {
-width: 90%;
 
-padding: 5%;
-padding-top: 1%;
-padding-left: 5%;
-float: right;
-height: 50%;
-left: 0px;
-position: absolute;
-margin-top: -40px;
-margin-bottom: 120px;
+    width: 90%;
+
+    padding: 5%;
+
+    padding-top: 1%;
+
+    padding-left: 5%;
+
+    float: right;
+
+    height: 50%;
+
+    left: 0px;
+
+    position: absolute;
+
+    margin-top: -40px;
+
+    margin-bottom: 120px;
+
 }
 
 #settingSelector::-webkit-scrollbar {
@@ -161,16 +172,27 @@ h4 {
 }
 
 .ui-slider {
-width: 80%;
-margin-left: 10%;
-margin-top: 15px;
-float: left;
-background: #5e3a3f!important;
-border: 0px;
-height: 25px!important;
-margin-bottom: 5px;
-overflow: hidden;
+
+    width: 80%;
+
+    margin-left: 10%;
+
+    margin-top: 15px;
+
+    float: left;
+
+    background: #5e3a3f!important;
+
+    border: 0px;
+
+    height: 25px!important;
+
+    margin-bottom: 5px;
+
+    overflow: hidden;
+
 }
+
 .ui-widget-header {
 
     background: #e78f08;
@@ -178,8 +200,11 @@ overflow: hidden;
 }
 
 .ui-slider-handle {
- -ms-touch-action: none;
-touch-action: none;   
+
+    -ms-touch-action: none;
+
+    touch-action: none;
+
 }
 
 .next {
@@ -203,12 +228,13 @@ touch-action: none;
     margin-left: 7%;
 
     border: 0px;
-    
+
 }
 
-
 textarea:focus {
- outline: none;   
+
+    outline: none;
+
 }
 
 .next:hover {
@@ -228,30 +254,49 @@ textarea:focus {
 }
 
 #welcome {
-width: 90%;
-height: 250px;
-position: relative;
-padding: 5%;
-padding-left: 7%;
-    background-color: rgba(50,50,50,.09);
+
+    width: 90%;
+
+    height: 250px;
+
+    position: relative;
+
+    padding: 5%;
+
+    padding-left: 7%;
+
+    background-color: rgba(50, 50, 50, .09);
+
 }
 
 #welcomeImg {
-position: absolute;
-height: 50%;
-right: 70%;
+
+    position: absolute;
+
+    height: 50%;
+
+    right: 70%;
+
 }
 
-
 #profileChange {
-position: absolute;
-bottom: 23%;
-right: 67%;
-width: 25%;
-font-family: comfortaa;
-font-size: 66%;
-text-align: center;
-text-decoration: underline;
+
+    position: absolute;
+
+    bottom: 23%;
+
+    right: 67%;
+
+    width: 25%;
+
+    font-family: comfortaa;
+
+    font-size: 66%;
+
+    text-align: center;
+
+    text-decoration: underline;
+
 }
 
 #profileChange:hover {
@@ -282,8 +327,10 @@ form {
 
 }
 
-#signUpForm input{
+#signUpForm input {
+
     display: none;
+
 }
 
 .bio {
@@ -310,81 +357,170 @@ form {
 
 }
 
-
 @media (max-width: 1024px) {
-#settingSelector {
-width: 90%;
-z-index: 1500;
-padding: 5%;
-padding-top: 1%;
-float: right;
-left: 0px;
-margin-bottom: 120px;
-position: relative;
-margin-top: 0px;
+
+    #settingSelector {
+
+        width: 90%;
+
+        z-index: 1500;
+
+        padding: 5%;
+
+        padding-top: 1%;
+
+        float: right;
+
+        left: 0px;
+
+        margin-bottom: 120px;
+
+        position: relative;
+
+        margin-top: 0px;
+
+        height: auto;
+
+    }
+
 }
-}
-
-
-
 
 @media (max-width: 800px) {
-    #content {
-     overflow-y: visible;
-        min-height: 1100px;
+
+    .content {
+
+        overflow-y: visible;
+
     }
-    
-#welcome {
-width: 90%;
-height: 250px;
-position: relative;
-margin-left: 0;
-padding: 5%;
-} 
-  #welcome div {
-   width: 100%;
-      padding: 0%;
-  }
-    
-    .twoThirds {
-     width: 80%;   
+
+    #welcome {
+
+        width: 90%;
+
+        height: 250px;
+
+        position: relative;
+
+        margin-left: 0;
+
+        padding: 5%;
+
     }
-    
-    h2 {
-     text-align: center;   
-    }
-    
-    form {
-       width: 100%;
-height: 150px;
-margin-left: 0%;
-      margin-top: 35px;  
-    }
-    
-    #settingSelector {
-        margin: 0px;
-margin-left: 0px;
-padding: 5%;
-width: 90%;
-    }
-    
-    h3 {
-        margin-left: 0px;
-padding: 0px;
-margin: 0px;
-margin-bottom: 40px;
-    }
-    
-    .setter {
+
+    #welcome div {
+
         width: 100%;
-float: left;
-padding: 0px;
-        
+
+        padding: 0%;
+
     }
-    
-    
+
+    .twoThirds {
+
+        width: 80%;
+
+    }
+
+    h2 {
+
+        text-align: center;
+
+    }
+
+    form {
+
+        width: 100%;
+
+        height: 150px;
+
+        margin-left: 0%;
+
+        margin-top: 35px;
+
+    }
+
+    #settingSelector {
+
+        margin: 0px;
+
+        margin-left: 0px;
+
+        padding: 5%;
+
+        width: 90%;
+
+    }
+
+    h3 {
+
+        margin-left: 0px;
+
+        padding: 0px;
+
+        margin: 0px;
+
+        margin-bottom: 40px;
+
+    }
+
+    .setter {
+
+        width: 100%;
+
+        float: left;
+
+        padding: 0px;
+
+    }
+
     .next {
-     max-width: 70%;   
+
+        max-width: 70%;
+
     }
-    
+
+    #welcome .third {
+
+        height: 250px;
+
+    }
+
+    #welcome img {
+
+        position: absolute;
+
+        top: 0px;
+
+        width: auto;
+
+        height: 80%;
+
+        margin: 0 auto;
+
+        display: block;
+
+        right: 0;
+
+        left: 0;
+
+    }
+
+    #profileChange {
+
+        width: 100%;
+
+        bottom: 10%;
+
+        text-align: center;
+
+        right: 0px;
+
+    }
+
+    .twoThirds {
+
+        margin-top: 20px;
+
+    }
+
 }

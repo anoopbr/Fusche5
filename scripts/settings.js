@@ -287,15 +287,9 @@ function afterRegistration() {
                 // );
 
                 if (data["response"] == "Success") {
-                    //alert(data["response"]);
-                    window.location.replace("search.php");
-                    console.log(data + "success");
-                    // History.pushState({
-                    //     state: "search"
-                    // }, "Search - Fusche", "?state=search");
+                  console.log(data);
 
                 } else {
-                    alert(data["response"]);
                     console.log(data + "failure");
 
 

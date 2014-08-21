@@ -6,7 +6,6 @@ var login, sideBar;
 $(window).load(function () {
 
 
-
     login = new signUpPage();
     sideBar = new topRestBar();
 

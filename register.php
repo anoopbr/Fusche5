@@ -82,7 +82,7 @@ function register_user(){
 	try{
 	$db->beginTransaction();
 	$ipaddress = getenv('REMOTE_ADDR');
-	$stmt2 = $db->prepare("INSERT INTO signup (name, email, pswd, signup_date, ipaddress) 
+	$stmt2 = $db->prepare("INSERT INTO signup (name, email, pswd, lastlog, ipaddress) 
 	VALUES (:full_name, :email, :pswd, now(), :ipaddress)");
 	$stmt2->bindParam(':full_name', $full_name, PDO::PARAM_STR);
 	$stmt2->bindParam(':email',$email,PDO::PARAM_STR);

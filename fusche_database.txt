@@ -1,0 +1,46 @@
+fusche:
+
+Account:
+signup(signid,name, email, pswd, timestamp), signid is primary key
+1, keval,  asds@gmail.com, sdsaew, 12:00:90
+2, jainam, jain@gmail.com, asaa, 5:00:10
+
+
+
+
+login(loginid, googleid, fbid, appid1, appid2, appid3, name, email, timestamp), signid is foreign key, loginid is primary key
+1, sd34fwsdf34, null, null, null, keval R, asds12@gmail.com, 4:00:09
+2, 
+
+sync(syncid, signid, loginid, name, email)
+myaccount(syncid, email, description, pic, birthday, cellno, street, apt, city, state, zipcode, country, creditcard )
+
+user_preference(syncid, health_rating, price_range, distance)
+search_history(syncid, health_rating, price_range, distance, search_tag)
+
+pics_of_dishes(id_pic, syncid, restaurantid, image, shortdesc, tag, timestamp, visibility), id_pic is primary key, foreign key restaurants
+
+pic_dish_rating(id_pic, total_rating, count), foreign key pics_of_dishes
+
+
+food:
+affiliates(affiliateid,name)
+1,opentable
+2,postmates
+
+
+restaurants(restaurantid, name, address, latitude, longitude, health_rating, total_rating, count), contains details along with health ratings
+category_dish(categoryid, name)
+restaurant_menu(menuid, restaurantid, dishid, categoryid, dishname, desc, price), foreign key restaurants
+user_order(orderid, syncid, menuid, qty, timestamp,  street, apt, city, state, zipcode, country, cellno, rating, comment, affiliateid), foreign key restaurants and login
+(1,asds@gmail.com,1,1,2,2:00:03,3,null,1)
+(1,asds@gmail.com,1,2,12,2:00:03,3,null,1)
+
+followers:
+following(syncid, follow_syncid, timestamp)
+saved_history(syncid, restaurantid, menuid, timestamp)
+
+following_pic_dish(id_pic, syncid, timestamp)
+
+
+

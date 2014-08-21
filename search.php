@@ -11,6 +11,7 @@ if($user_is_logged != true){
 
 ob_end_flush();
 ?>
+
 <html>
 
 <head>
@@ -18,21 +19,43 @@ ob_end_flush();
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Comfortaa:400,700|Crimson+Text:400,700,600' rel='stylesheet' type='text/css'>
-    <link href="styleSheets/style.css" rel="stylesheet" type="text/css">
+    <link href="styleSheets/autofill.css" rel="stylesheet" type="text/css">
+   <link href="styleSheets/style.css" rel="stylesheet" type="text/css">
+    <link href="styleSheets/settings.css" rel="stylesheet" type="text/css">
+    <link href="styleSheets/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="styleSheets/settings.css" rel="stylesheet" type="text/css">
     <link href="styleSheets/search.css" rel="stylesheet" type="text/css">
-    <script src="rest1.js"></script>
+    
+    
+   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    
+    <script type="text/javascript" src="http://menus.singleplatform.co/jsload?load=menus.2&apiKey=kgetu755ypash34s0hxcde7os"></script>
+    
+    
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="scripts/history.js"></script>
+    <script src="scripts/sha.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
     <script src="scripts/touchSwipe.js"></script>
     <script src="scripts/fitText.js"></script>
+    <script src="scripts/autofill.min.js"></script>
     <script src="scripts/search.js"></script>
 
+    
+    
+    
     <title>FUSCHE: Fun Shit</title>
 </head>
 
 
 <body>
+    
+    <div id="loader">
+       
+</div>
+        
+        </div>
     <div id="fb-root"></div>
     <script>
         (function (d, s, id) {
@@ -79,6 +102,11 @@ ob_end_flush();
         <div id="mobileMenu">
             <img id="menuButton" src="images/mobileMenu-01.svg">
         </div>
+        
+        <div id="searchMenu" style="opacity: 0;">
+            <img id="menuButton" src="images/search.svg">
+        </div>
+        
     </div>
 
     <div id="container">
@@ -275,31 +303,39 @@ ob_end_flush();
             <div class="content">
 
                 <div id="secondaryNav">
+                    <div>
                     <span>Search</span>
                     <span>Newest Dishes</span>
                     <span>Popular Dishes</span>
                     <span class="yellow">Following</span>
-
+                    </div>
                 </div>
 
 
-                <!-- <div id="search"> -->
-
-                <form id="search" method="post" action="response.php" accept-charset="utf-8">
-
+                <div id="search">
+                    <div id="searchOverflow">
+                    <form id="searcher">
                     <input type="text" id="searchBox" name="searchBox" placeholder="Search for a restaurant or dish..."></input>
                     <input id="searchSubmit" type="image" src="images/purpArrow.svg" alt="Search" />
-                    <input type="hidden" name="start" value="5">
-                    <input type="hidden" name="end" value="6">
-                </form>
-
-                <!-- </div> -->
-
-
-
-
-                <div class="the-return">
+                    </form>
+                <div id="getLocation">Get Current Location</div>
+                <div id="locationChange">Change your location</div>
+                <form id="locationForm">
+                <input id="locationChanger" class="hiddenLocation" type="text" placeholder="Where do you want to eat? ex. 49 Murray St NY, NY">
+                    </form>
+                <div id="currentLocation">Current Location: </div>
+                
+              
                 </div>
+                 
+                </div>
+ <div id="results" class="hiddenAddy">
+                <span>49 Murray Street, New York, NY 10007, USA</span>
+                </div>
+
+
+
+
 
 
 
@@ -339,8 +375,13 @@ ob_end_flush();
                             </div>
 
                             <div class="rightResult darkYellow">
+                                <div class="healthStamp yellow">
+                                    A
+
+                                </div>
+                                <div class="healthWarning">Critical Health Violation!!!!! FASLFKJAD ASDLKJ ASDLKJ ASD LASKDJ</div>
                                 <p class="clusterOne">
-                                    917-555-5151
+                                    <span class="phoneNumber">917-555-5151</span>
                                     <br/>lavillacafe.com
                                     <br/>.2 miles away
                                     <br/>$$
@@ -365,6 +406,93 @@ ob_end_flush();
                     </div>
 
 
+                    
+                    
+                    
+                    
+                    <div class="result oneSide darkYellow">
+                        <div class="resultsOverflow ">
+                            <div class="swipeIndicator">
+                                <img src="images/arrowRight.svg">
+
+                            </div>
+                            <div class="leftResult yellow">
+                                <div class="resultTitle">La Villa Cafe</div>
+                                <div class="resultAddress">501 Dekalb Ave</div>
+                                 <div class="phoneNumber">917-555-5151 </div>
+                                <div class="resultRating">
+                                    <img src="images/star.svg">
+                                    <img src="images/star.svg">
+                                    <img src="images/star.svg">
+                                    <img src="images/noStar.svg">
+                                    <img src="images/noStar.svg">
+                                </div>
+                                <div class="resultImage">
+                                    <img src="http://www.envision-creative.com/wp-content/uploads/Tiagos01.jpg">
+                                </div>
+
+                                <div class="rating" rating="sucks">It Sucks</div>
+                                <div class="addToList">
+                                    <img src="images/saveToList.svg">
+                                    <div class="addText">add to list</div>
+                                </div>
+                                <div class="rating right" rating="good">Gotta Have It!</div>
+
+
+
+                            </div>
+
+        
+                            <div class="ratingBar">
+                                <div class="ratingBad"></div>
+                                <div class="ratingGood"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="result oneSide deepPurp">
+                        <div class="resultsOverflow ">
+                            <div class="swipeIndicator">
+                                <img src="images/arrowRight.svg">
+
+                            </div>
+                            <div class="leftResult redPurp">
+                                <div class="resultTitle">La Villa Cafe</div>
+                                <div class="resultAddress">501 Dekalb Ave</div>
+                                <div class="phoneNumber">917-555-5151 </div>
+                                <div class="resultRating">
+                                    <img src="images/star.svg">
+                                    <img src="images/star.svg">
+                                    <img src="images/star.svg">
+                                    <img src="images/noStar.svg">
+                                    <img src="images/noStar.svg">
+                                </div>
+                                <div class="resultImage">
+                                    <img src="http://www.envision-creative.com/wp-content/uploads/Tiagos01.jpg">
+                                </div>
+
+                                <div class="rating" rating="sucks">It Sucks</div>
+                                <div class="addToList">
+                                    <img src="images/saveToList.svg">
+                                    <div class="addText">add to list</div>
+                                </div>
+                                <div class="rating right" rating="good">Gotta Have It!</div>
+
+
+
+                            </div>
+
+        
+                            <div class="ratingBar">
+                                <div class="ratingBad"></div>
+                                <div class="ratingGood"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
 
                     <div class="result deepPurp">
                         <div class="resultsOverflow">
@@ -405,8 +533,15 @@ ob_end_flush();
                             </div>
 
                             <div class="rightResult deepPurp">
+
                                 <div class="clusterTwo">
-                                    <h2>La Villa Cafe</h2>
+
+                                    <h2> 
+                                        La Villa Cafe</h2>
+                                    <div class="healthStamp redPurp">
+                                        A
+                                    </div>
+                                    <div class="healthWarning">Critical Health Violation!!!!! FASLFKJAD ASDLKJ ASDLKJ ASD LASKDJ</div>
                                     <div class="userRating">
                                         <img src="images/star.svg">
                                         <img src="images/star.svg">
@@ -417,7 +552,7 @@ ob_end_flush();
                                     <span>read all reviews</span>
                                 </div>
                                 <p class="clusterOne">
-                                    917-555-5151
+                                    <span class="phoneNumber">917-555-5151</span>
                                     <br/>lavillacafe.com
                                     <br/>.2 miles away
                                     <br/>$$
@@ -441,9 +576,22 @@ ob_end_flush();
                         </div>
                     </div>
 
+
+
+
+
+
+
+
+
+
                 </div>
 
+
+
             </div>
+
+
 
         </div>
 
@@ -476,4 +624,5 @@ ob_end_flush();
 
 
 </html>
+
 
